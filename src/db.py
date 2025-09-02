@@ -87,5 +87,7 @@ class UserVector(Base):
 
 def init_db():
     """Initialize database tables."""
+    # 👇 This ensures all models are loaded before table creation
+    import src.db   # replace with src.models if models are in another file
     Base.metadata.create_all(bind=engine)
     print("✅ Database initialized (tables created).")
