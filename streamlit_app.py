@@ -11,14 +11,13 @@ from src.db import SessionLocal, Feedback
 from src.utils import get_user_preferences
 from config import APP_TITLE
 from src.gemini_api import gemini_recommend  
-from src.db import init_db
-init_db()  # ensures tables exist
-
 
 
 
 # Load .env once for the whole app
 load_dotenv()
+from src.db import init_db
+init_db()  # ensures tables exist
 
 # -----------------------------
 # Page setup
