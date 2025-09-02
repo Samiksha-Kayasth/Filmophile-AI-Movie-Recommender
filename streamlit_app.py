@@ -10,7 +10,10 @@ from src.auth import register_user, login_user, get_current_user, logout_user
 from src.db import SessionLocal, Feedback
 from src.utils import get_user_preferences
 from config import APP_TITLE
-from src.gemini_api import gemini_recommend   # ✅ use function instead of GeminiClient
+from src.gemini_api import gemini_recommend  
+from src.db import init_db
+init_db()  # ensures tables exist
+
 
 
 
