@@ -4,13 +4,25 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from sqlalchemy.sql import func
-from config import DATABASE_URL   # ✅ load directly from config.py
+from config import DATABASE_URL   # ✅ Load from config.py
+import os
 
 # ---------------------------
 # Database Config
 # ---------------------------
 Base = declarative_base()
-engine = create_engine(DATABASE_URL, echo=False, future=True)
+
+# ✅ Use SQLite safely on Streamlit Cloud
+if DATABASE_URL.startswith("sqlite"):
+    engine = create_engine(
+        DATABASE_URL,
+        echo=False,
+        future=True,
+        connect_args={"check_same_thread": False}  # required for SQLite
+    )
+else:
+    engine = create_engine(DATABASE_URL, echo=False, future=True)
+
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
 # ---------------------------
