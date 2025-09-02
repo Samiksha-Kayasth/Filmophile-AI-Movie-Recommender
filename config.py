@@ -9,7 +9,7 @@ load_dotenv()
 # ==========================
 # Database Configuration
 # ==========================
-DATABASE_URL = "postgresql+psycopg2://filmouser:filmophile@localhost:5432/filmophile"
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///filmophile.db")
 
  
     # fallback if no .env is present
