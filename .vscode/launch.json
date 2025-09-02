@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    
+    {
+      "name": "Run Data Prep",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "src.data_prep",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Run Auth",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "src.auth",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Run DB Init",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "src.db",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Run Streamlit App",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/streamlit_app.py",
+      "cwd": "${workspaceFolder}"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Run Full App (DB + Streamlit)",
+      "configurations": ["Run DB Init", "Run Streamlit App"],
+      "stopAll": true
+    }
+  ]
+}

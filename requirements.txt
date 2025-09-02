@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+scikit-learn
+SQLAlchemy
+psycopg2-binary
+bcrypt
+python-dotenv
+tqdm
+google-generativeai
